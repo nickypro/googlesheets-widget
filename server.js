@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const dotenv = require("dotenv")
-dotenv.config()
+const config = require('./config/sheets.json')
 
 const getLibraryBooks = require('./functions/getLibraryBooks')
 
@@ -19,8 +18,7 @@ app.get('/ping', (req, res) => {
 /* get library books from google sheets */
 app.get('/api/books', async (req, res) => {
   console.log(now(), "Getting Books")
-  console.log(process.env)
-  let books = await getLibraryBooks(process.env.SHEETS_ID)
+  let books = await getLibraryBooks(config)
   res.send(books)
 })
 

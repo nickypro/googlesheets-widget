@@ -1,11 +1,12 @@
 const {google} = require('googleapis');
 
-async function getLibraryBooks(SHEETS_ID) {
+async function getLibraryBooks({sheet_id, client_email, private_key}) {
   //create a google sheets login
+
   const client = new google.auth.JWT(
-    process.env.CLIENT_EMAIL,
+    client_email,
     null,
-    process.env.PRIVATE_KEY,
+    private_key,
     ['https://www.googleapis.com/auth/spreadsheets']
   );
   
@@ -25,7 +26,7 @@ async function getLibraryBooks(SHEETS_ID) {
   })
 
   const options = {
-    spreadsheetId: SHEETS_ID,
+    spreadsheetId: sheet_id,
     range: "Sheet1!A2:G",
     valueRenderOption: "FORMULA"
   }
