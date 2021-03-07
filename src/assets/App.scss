@@ -28,6 +28,7 @@ html, body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: rgba(white, 0.0);
 }
 
 @media screen and (max-height: 600px) {
@@ -35,11 +36,7 @@ html, body {
 }
 
 body {    
-  background: linear-gradient( 
-    60deg, 
-    darken(desaturate(#505, 50), 65), 
-    darken(desaturate(#306, 50), 65) 
-  );
+  background: rgba(white, 0.0);
 }
 
 h1 {
@@ -359,7 +356,7 @@ button{
 
   .card {
     padding: 2rem 0.7rem;
-    margin: 0.5rem;
+    margin: 0rem 0.5rem;
     width: calc(100%-1rem);
     grid-template-columns: 1fr;
     h1 {
